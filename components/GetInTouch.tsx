@@ -4,7 +4,7 @@ export default function GetInTouch() {
   return (
     <section className="space-y-4 md:pt-10">
       <h2 className="text-lg font-semibold">GET IN TOUCH</h2>
-      <p className="text-zinc-800 dark:text-zinc-100 text-sm md:text-base">
+      <p className="text-zinc-600 dark:text-zinc-300 text-sm md:text-base">
         If you’d like to reach out, talk about projects, or just connect, feel
         free to contact me anytime. You can find me here:
       </p>

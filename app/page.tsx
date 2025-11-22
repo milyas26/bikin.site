@@ -1,8 +1,11 @@
 import Image from "next/image";
+import WorkTimeline from "@/components/WorkTimeline";
+import MyToolbox from "@/components/MyToolbox";
+import GetInTouch from "@/components/GetInTouch";
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 border-x border-zinc-200 dark:border-zinc-800 min-h-screen">
+    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-10">
       <section className="space-y-10">
         <div className="space-y-6">
           <div className="me">
@@ -51,37 +54,37 @@ export default function Home() {
             to my little corner of the internet.
           </p>
         </div>
-        {/* my values */}
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold">MY VALUES</h2>
-          <ul>
-            <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-              <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-yellow-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-                Keep things simple and practical
-              </span>
-            </li>
-            <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-              <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-yellow-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-                Write code that future-me won’t hate
-              </span>
-            </li>
-            <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-              <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-yellow-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-                Prioritize performance and user experience
-              </span>
-            </li>
-            <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-              <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-yellow-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-                Build with intention, not just habit
-              </span>
-            </li>
-          </ul>
-        </div>
       </section>
+      <section className="space-y-2">
+        <h2 className="text-lg font-semibold">MY VALUES</h2>
+        <ul>
+          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
+            <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
+              Keep things simple and practical
+            </span>
+          </li>
+          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
+            <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
+              Write code that future-me won’t hate
+            </span>
+          </li>
+          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
+            <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
+              Prioritize performance and user experience
+            </span>
+          </li>
+          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
+            <span className="text-zinc-700 px-2 py-1 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
+              Build with intention, not just habit
+            </span>
+          </li>
+        </ul>
+      </section>
+      <MyToolbox />
 
-      <footer className="mt-10 text-center text-zinc-500 dark:text-zinc-400 pb-16">
-        <p>&copy; 2023 Muhammad Ilyas. All rights reserved.</p>
-      </footer>
+      <WorkTimeline />
+
+      <GetInTouch />
     </main>
   );
 }

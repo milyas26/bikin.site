@@ -2,6 +2,14 @@ import Image from "next/image";
 import WorkTimeline from "@/components/WorkTimeline";
 import MyToolbox from "@/components/MyToolbox";
 import GetInTouch from "@/components/GetInTouch";
+import { buildMetadata } from '@/lib/seo'
+
+export const metadata = buildMetadata({
+  title: 'Beranda',
+  description:
+    'Profil, pengalaman, nilai, dan toolbox teknis Muhammad Ilyas sebagai Frontend Engineer.',
+  urlPath: '/',
+})
 
 export default function Home() {
   return (
@@ -10,7 +18,7 @@ export default function Home() {
         <div className="space-y-6">
           <div className="me">
             <h1 className="text-2xl font-semibold">Muhammad Ilyas</h1>
-            <p className="text-zinc-500 dark:text-zinc-300">
+            <p className="text-zinc-800 dark:text-zinc-100">
               Senior Frontend Engineer
             </p>
           </div>
@@ -39,7 +47,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="space-y-4 text-zinc-500 pt-2 md:pt-10">
+        <div className="space-y-4 text-zinc-800 dark:text-zinc-100 text-sm md:text-base pt-2 md:pt-10">
           <p>
             I’m a developer who loves building fast, clean, and easy-to-use web
             experiences. Most of my work happens in the frontend with React and

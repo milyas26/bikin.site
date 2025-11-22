@@ -1,13 +1,20 @@
 import Link from 'next/link'
 import { getOpenSourceList } from '@/lib/content'
+import { buildMetadata } from "@/lib/seo";
 
-export const revalidate = 60
+export const revalidate = 60;
+
+export const metadata = buildMetadata({
+  title: "Open Source",
+  description: "Proyek open source yang saya bangun atau kontribusikan.",
+  urlPath: "/opensources",
+});
 
 export default function OpensourcesPage() {
   const list = getOpenSourceList()
   return (
-    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-10">
-      <h1 className="mb-6 text-3xl font-bold">Proyek Open Source</h1>
+    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-6">
+      <h1 className="text-2xl font-semibold">Proyek Open Source</h1>
       <ul className="space-y-3">
         {list.map((item) => (
           <li

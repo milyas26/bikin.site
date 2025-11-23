@@ -20,11 +20,13 @@ export default function OpensourcesPage() {
         {list.map((item) => (
           <li
             key={item.slug}
-            className="rounded-lg p-4 transition-colors duration-200 ease-in-out bg-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+            className="rounded-lg p-4 transition-colors duration-200 ease-in-out bg-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 dark:bg-zinc-900"
           >
             <div className="space-y-4">
               <div className="space-y-2">
-                <h2 className="text-lg font-semibold">{item.title}</h2>
+                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {item.title}
+                </h2>
                 {item.summary && (
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">
                     {item.summary}

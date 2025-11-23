@@ -1,0 +1,81 @@
+---
+title: MerchantCore Admin - Management Dashboard
+date: ${current_date}
+tags: [react, vite, tailwindcss, shadcn, react-query, zustand, multi-tenant]
+summary: Admin dashboard for multi-tenant merchant management with modern React tooling.
+author: ${author_name}
+link: https://github.com/milyas26/merchantcore-admin
+---
+
+## Overview
+
+MerchantCore Admin is a React + TypeScript web app that manages stores, catalog, and operations in a multi-tenant setup.
+
+- Tech Stack:
+  - React + TypeScript + Vite
+  - Tailwind CSS v4 + shadcn/ui (Radix UI primitives)
+  - TanStack React Query
+  - Zustand (persist middleware) for client state
+  - React Router DOM
+  - Axios with token refresh interceptor
+
+## Core Features
+
+1. Tenant (store) management and switching
+2. Catalog and category management
+3. Inventory management
+4. Promotions and reports
+
+## Architecture
+
+The UI uses protected routes, local state for auth and current store, and React Query for server state with Axios interceptors.
+
+```
+User
+  │
+  ▼
+React Router ──► ProtectedRoute ──► ProtectedLayout
+UI (shadcn) ──► Zustand Stores ──► React Query ──► Axios Interceptor ──► MerchantCore API
+```
+
+### Access Control
+
+- `ProtectedRoute` checks `isAuthenticated` via `useAuthStore` and redirects unauthenticated users.
+- `ProtectedLayout` provides shared navigation, breadcrumbs, and sidebar shell.
+
+### State Management
+
+- `useAuthStore` and `useStoreStore` manage user tokens, stores list, and current store.
+- Persistence via `zustand/middleware` stores critical slices in local storage.
+
+## Project Structure
+
+```
+/src
+  /components         App shell and UI primitives
+  /features
+    /auth             Authentication flows, store, service
+    /catalog          Product APIs, hooks, UI
+    /category         Tree, hooks, schema, service
+    /inventory        API, hooks, utils
+    /stores           API, hooks, store, UI
+  /interceptors       Axios interceptor
+  /pages              Route pages (Dashboard, Catalog, Inventory, etc.)
+  /shared             Shared types
+  App.tsx, main.tsx
+```
+
+## Reporting
+
+- Reports and promotions pages use shared layout and can integrate filters.
+- React Query provides caching and pagination patterns for list views.
+
+## UI/UX Notes
+
+- Tailwind-driven design with shadcn components ensures accessibility and consistency.
+- Sidebar and breadcrumb system provides clear navigation across features.
+
+## Configuration
+
+- `VITE_API_BASE_URL` points to the MerchantCore API.
+- Tokens are stored in local storage, with optional refresh handling.

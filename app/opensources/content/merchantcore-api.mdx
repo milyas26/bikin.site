@@ -1,0 +1,99 @@
+---
+title: MerchantCore API - Multi-tenant Backend Service
+date: ${current_date}
+tags: [postgresql, fastify, typescript, prisma, multi-tenant]
+summary: Backend service for merchant management with a PostgreSQL multi-schema architecture.
+author: ${author_name}
+link: https://github.com/milyas26/merchantcore-api
+---
+
+## Overview
+
+MerchantCore API is a Fastify-based backend for an ecommerce platform with strict schema-per-tenant isolation.
+
+- Tech Stack:
+  - Fastify + TypeScript
+  - PostgreSQL (multi-schema)
+  - Prisma (generated clients per schema)
+  - JWT authentication
+
+## Multi-Tenant Architecture
+
+The platform uses separate PostgreSQL schemas per store (tenant) and a shared `public` schema for user/store management. Prisma clients are generated per schema and selected at request time.
+
+1. Public schema for users, stores, memberships
+2. Schema-per-store for catalog, inventory, orders
+3. Tenant resolution via JWT (`currentStore.slug`) and Fastify auth plugin
+
+Architecture overview:
+
+```
+Clients
+   │
+   ▼
+Fastify ──► JWT Auth Plugin ──► Resolve current store ──► Prisma Client (store schema)
+                                 └──────────────────────► Prisma Client (public)
+```
+
+### Tenant Resolution
+
+- Requests carry JWT with `currentStore` context.
+- Routes read `request.user.currentStore.slug` and obtain a schema-specific Prisma client.
+- Public operations use a dedicated public Prisma client.
+
+### Data Isolation
+
+- All CRUD operations execute against the selected schema; cross-tenant access is structurally prevented.
+- Migrations are applied per schema using deployment scripts.
+
+## Project Structure
+
+```
+/src
+  /features
+    /admin
+      /auth
+      /categories
+      /customers
+      /inventory
+      /orders
+      /products
+      /store
+      /user
+    /frontstore
+      /auth
+      /products
+  /plugins
+    auth.plugin.ts
+  /utils
+    schemaRunner.ts
+  app.ts
+  server.ts
+packages/libs/db
+  getPrismaForSchema.ts
+prisma/
+  public/schema.prisma
+  store/schema.prisma
+scripts/
+  setup-migrations.ts
+  migrate-store-schemas.ts
+```
+
+## Migrations
+
+- `setup-migrations.ts` initializes directories and lock files.
+- `migrate-store-schemas.ts` discovers store slugs and runs `prisma migrate deploy` per schema.
+- Generate clients: `npm run prisma:generate:all`.
+- Dev migrations: `npm run prisma:migrate:dev:all`.
+
+## Security Considerations
+
+- JWT verification on protected routes; optional verification for public endpoints.
+- Validate store slug format before using it for schema selection.
+- Avoid raw SQL with unvalidated identifiers; use Prisma datasource configuration.
+
+## Operational Notes
+
+- Environment variables: `DATABASE_URL_PUBLIC`, `DATABASE_URL_STORE`, `DATABASE_URL_BASE`, `JWT_SECRET`.
+- CORS origins configured in `app.ts` for local and production.
+- Fastify logger enabled for structured logs.

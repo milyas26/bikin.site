@@ -2,14 +2,6 @@ import Image from "next/image";
 import WorkTimeline from "@/components/WorkTimeline";
 import MyToolbox from "@/components/MyToolbox";
 import GetInTouch from "@/components/GetInTouch";
-import { buildMetadata } from '@/lib/seo'
-
-export const metadata = buildMetadata({
-  title: 'Beranda',
-  description:
-    'Profil, pengalaman, nilai, dan toolbox teknis Muhammad Ilyas sebagai Frontend Engineer.',
-  urlPath: '/',
-})
 
 export default function Home() {
   return (

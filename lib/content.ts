@@ -8,6 +8,7 @@ type Item = {
   date?: string
   tags?: string[]
   summary?: string
+  link?: string
 }
 
 function readDir(dir: string): Item[] {
@@ -24,6 +25,7 @@ function readDir(dir: string): Item[] {
       date: data.date,
       tags: data.tags,
       summary: data.summary,
+      link: data.link,
     }
   }).sort((a, b) => (b.date?.localeCompare(a.date || '') || 0))
 }

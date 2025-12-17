@@ -65,7 +65,7 @@ export default function PortfoliosPage() {
                   href={`/portfolios/${item.slug}`}
                   className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
                 >
-                  <span>Lihat detail</span>
+                  <span>Read more</span>
                   <ArrowRight size={16} />
                 </Link>
               </CardFooter>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, GitBranch, FileText, Briefcase, Bookmark } from "lucide-react";
+import { Home, GitBranch, FileText, Briefcase } from "lucide-react";
 import ThemeToggle from "./theme-toggle";
 
 const items = [
@@ -10,19 +10,18 @@ const items = [
   { href: "/opensources", label: "Opensources", Icon: GitBranch },
   { href: "/blog", label: "Blog", Icon: FileText },
   { href: "/portfolios", label: "Portfolios", Icon: Briefcase },
-  { href: "/bookmarks", label: "Bookmarks", Icon: Bookmark },
+  // { href: "/bookmarks", label: "Bookmarks", Icon: Bookmark },
 ];
 
 export default function BottomNav() {
   const pathname = usePathname();
   return (
-    <nav className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-fit max-w-lg rounded-xl border border-zinc-200 bg-white/90 px-3 py-2 shadow-lg backdrop-blur dark:border-zinc-800 dark:bg-black/70">
+    <nav className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-fit max-w-lg rounded-xl border border-zinc-200 bg-white/90 p-2 shadow-lg backdrop-blur dark:border-zinc-800 dark:bg-black/70">
       <div className="flex items-center justify-between gap-2">
         <div className="flex flex-1 items-center justify-around gap-4">
           {items.map(({ href, label, Icon }) => {
             const active =
-              pathname === href ||
-              (href !== "/" && pathname?.startsWith(href));
+              pathname === href || (href !== "/" && pathname?.startsWith(href));
             return (
               <Link
                 key={href}

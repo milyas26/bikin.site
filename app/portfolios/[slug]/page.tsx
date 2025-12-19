@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ExternalLink,
-  ArrowLeft,
   Atom,
   Box,
   Server,
@@ -21,7 +20,6 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export const revalidate = 60;
 
-type Params = { slug: string };
 type Stack = { id?: number; stack: string };
 type Pekerjaan = { id?: number; text: string };
 type Portfolio = {
@@ -98,7 +96,7 @@ export default async function PortfolioDetailPage({
         <h1 className="text-2xl font-semibold">{item.name}</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.role}</p>
       </div>
-      <Card className="overflow-hidden border-none">
+      <Card className="overflow-hidden border-none shadow-none!">
         <CardContent>
           <div className="relative aspect-4/3 w-full">
             <Image

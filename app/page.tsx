@@ -2,6 +2,7 @@ import Image from "next/image";
 import WorkTimeline from "@/components/WorkTimeline";
 import MyToolbox from "@/components/MyToolbox";
 import GetInTouch from "@/components/GetInTouch";
+import DownloadCV from "@/components/DownloadCV";
 
 export default function Home() {
   return (
@@ -42,11 +43,11 @@ export default function Home() {
         <div className="space-y-4 text-zinc-600 dark:text-zinc-300 text-sm md:text-base pt-2 md:pt-10">
           <p>
             I’m a developer who loves building fast, clean, and easy-to-use web
-            experiences. Most of my work happens in the frontend with React and
-            Next.js, but I also jump into backend work with Node.js and
-            PostgreSQL when the project needs it. I care a lot about good
-            structure, clear code, and performance that actually feels smooth to
-            users.
+            experiences. Most of my work happens in the frontend with React
+            ecosystem, particularly Next.js and Vite, but I also jump into
+            backend work with Node.js and PostgreSQL when the project needs it.
+            I care a lot about good structure, clear code, and performance that
+            actually feels smooth to users.
           </p>
           <p>
             I write about the things I learn along the way, small improvements,
@@ -85,6 +86,8 @@ export default function Home() {
       <WorkTimeline />
 
       <GetInTouch />
+
+      <DownloadCV />
     </main>
   );
 }

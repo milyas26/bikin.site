@@ -5,7 +5,7 @@ import Link from "next/link";
 export const revalidate = 60;
 
 export const metadata = buildMetadata({
-  title: "Blog",
+  title: "Blogs",
   description: "Tulisan dan catatan teknis dari Muhammad Ilyas.",
   urlPath: "/blog",
 });
@@ -17,7 +17,7 @@ export default function BlogPage() {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-6">
-      <h1 className="text-2xl font-semibold">Blog</h1>
+      <h1 className="text-2xl font-semibold">Blogs</h1>
       <ul className="space-y-6">
         {posts.map((post) => (
           <li key={post.slug}>

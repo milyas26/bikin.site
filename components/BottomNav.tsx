@@ -18,7 +18,7 @@ export default function BottomNav() {
   return (
     <nav className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-fit max-w-lg rounded-xl border border-zinc-200 bg-white/90 p-2 shadow-lg backdrop-blur dark:border-zinc-800 dark:bg-black/70">
       <div className="flex items-center justify-between gap-2">
-        <div className="flex flex-1 items-center justify-around gap-4">
+        <div className="flex flex-1 items-center justify-around gap-2">
           {items.map(({ href, label, Icon }) => {
             const active =
               pathname === href || (href !== "/" && pathname?.startsWith(href));

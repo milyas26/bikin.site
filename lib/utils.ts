@@ -11,10 +11,12 @@ import {
   Link as LinkIcon,
   Braces,
   Hexagon,
+  Rocket,
+  FileCode,
 } from "lucide-react";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export const stackIcon = (label: string) => {
@@ -31,5 +33,9 @@ export const stackIcon = (label: string) => {
   if (key.includes("laravel")) return Hexagon;
   if (key.includes("jquery")) return Braces;
   if (key.includes("firebase")) return Flame;
+  if (key.includes("fastify")) return Rocket;
+  if (key.includes("typescript")) return FileCode;
+  if (key.includes("postgres")) return Database;
+  if (key.includes("prisma")) return Hexagon;
   return Box;
 };

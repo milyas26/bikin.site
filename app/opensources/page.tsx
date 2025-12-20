@@ -2,8 +2,10 @@ import { buildMetadata } from "@/lib/seo";
 import { allOpenSources } from "contentlayer/generated";
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { stackIcon } from "@/lib/utils";
+import { CalendarDays } from "lucide-react";
 
 export const metadata = buildMetadata({
   title: "Open Source",
@@ -29,8 +31,9 @@ export default function OpenSourcePage() {
                     <p className="group-hover:underline font-semibold">
                       {post.title}
                     </p>
-                    <Badge variant="default">
-                      <div>
+                    <Badge variant="secondary" className="rounded-xs px-1">
+                      <div className="flex items-center">
+                        <CalendarDays className="inline-block mr-2 h-4 w-4" />
                         {new Date(post.date).toLocaleDateString("id-ID", {
                           year: "numeric",
                           month: "long",
@@ -54,11 +57,19 @@ export default function OpenSourcePage() {
                   </p>
                   {post.techStack && (
                     <div className="flex flex-wrap gap-2">
-                      {post.techStack.map((tech) => (
-                        <Badge key={tech} variant="default">
-                          {tech}
-                        </Badge>
-                      ))}
+                      {post.techStack.map((tech) => {
+                        const Icon = stackIcon(tech);
+                        return (
+                          <Badge
+                            key={tech}
+                            variant="secondary"
+                            className="gap-1"
+                          >
+                            <Icon className="h-4 w-4" />
+                            {tech}
+                          </Badge>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

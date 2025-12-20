@@ -1,0 +1,71 @@
+---
+title: "MerchantCore Admin"
+date: "2025-11-13"
+description: "MerchantCore Admin is a centralized admin dashboard designed to manage multiple online shops through the MerchantCore API"
+thumbnail: "https://ik.imagekit.io/twd1hnke581/bikin.site/image_AA6OVuA4I.png"
+techStack: ["TypeScript", "Vite", "React", "Tailwind", "Shadcn UI", "React Query", "Zustand"]
+---
+
+## Project Overview
+
+MerchantCore Admin is a **centralized admin dashboard** integrated with the MerchantCore API. It serves as a unified interface for managing multiple online stores efficiently.
+
+[View Repository on GitHub](https://github.com/milyas26/merchantcore-admin)
+
+- **Multi-Store Management**: One admin dashboard can manage multiple online stores simultaneously.
+- **Decoupled Frontstore**: Each store can have a different frontstore implementation while being managed from the same admin panel.
+- **Seamless Switching**: Admins can easily switch between different stores directly from the dashboard.
+- **Centralized Data Routing**: All data operations are routed through the MerchantCore API, ensuring consistency and security.
+
+## Core Concept: Store-Based Context
+
+MerchantCore Admin operates using a **store context** model, which ensures that administrative actions are correctly scoped.
+
+- **Store Selection**: The admin selects a specific store (shop) to manage.
+- **Scoped Actions**: All subsequent actions—managing products, orders, content, and settings—are automatically scoped to the selected store.
+- **No Direct Database Access**: The dashboard does not interact with the database directly.
+- **Schema Resolution**: The MerchantCore API handles schema resolution behind the scenes based on the selected store context.
+
+**Conceptual Flow:**
+
+Admin UI → MerchantCore API → Schema-based data access
+
+## Features by Store
+
+For each selected store, the admin dashboard provides comprehensive management capabilities:
+
+- **Products and Categories**: Manage inventory, product details, and categorization.
+- **Orders and Customers**: Track orders, process fulfillments, and manage customer data.
+- **Store Content**: Update banners, pages, and promotional content.
+- **Settings**: Configure store-specific settings and preferences.
+
+**Key Distinction:**
+
+- **Data Isolation**: Data is strictly isolated between stores to prevent overlap.
+- **Consistent UI**: The user interface remains consistent across all stores, providing a familiar experience regardless of the store being managed.
+
+## Integration with MerchantCore API
+
+MerchantCore Admin is built to integrate seamlessly with the MerchantCore API:
+
+- **Shared API Contract**: Uses a standardized API contract for communication.
+- **Context Awareness**: Passes store identifiers (shop code or store ID) with requests.
+- **API-Level Resolution**: Relies on the API to resolve the correct database schema and data source.
+- **Logic Separation**: No store-specific business logic resides inside the dashboard; it purely acts as a management interface.
+
+## Benefits
+
+- **Centralized Control**: Manage an entire portfolio of stores from a single location.
+- **Reduced Complexity**: Simplifies operations by unifying management tools.
+- **Scalability**: Easily add new stores without deploying new admin instances.
+- **Clean Architecture**: Maintains a clean separation between the admin UI and backend logic.
+
+## Use Cases
+
+- **E-commerce SaaS Platforms**: Offering store management to multiple merchants.
+- **Multi-Brand Businesses**: Operating distinct brands under one umbrella.
+- **Agencies**: Managing multiple client stores from a single account.
+
+## Summary
+
+MerchantCore Admin provides a powerful, single admin dashboard solution for managing multiple frontstores. By leveraging the unified backend of the MerchantCore API, it delivers a seamless, store-based management experience that is both scalable and efficient.

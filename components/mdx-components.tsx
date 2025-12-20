@@ -17,10 +17,10 @@ export const mdxComponents = {
     <p className="text-sm md:text-base leading-7 not-first:mt-6" {...props} />
   ),
   ul: (props: ComponentProps<"ul">) => (
-    <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />
+    <ul className="my-4 list-disc [&>li]:mt-2" {...props} />
   ),
   ol: (props: ComponentProps<"ol">) => (
-    <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />
+    <ol className="my-4 list-decimal [&>li]:mt-2" {...props} />
   ),
   li: (props: ComponentProps<"li">) => (
     <li className="mt-2 text-sm md:text-base" {...props} />

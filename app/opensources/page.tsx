@@ -43,7 +43,7 @@ export default function OpenSourcePage() {
                     </Badge>
                   </div>
                   {post.thumbnail && (
-                    <div className="relative aspect-video h-20 md:h-40 overflow-hidden bg-muted flex">
+                    <div className="relative aspect-video h-32 md:h-40 overflow-hidden bg-muted flex">
                       <Image
                         src={post.thumbnail}
                         alt={post.title}

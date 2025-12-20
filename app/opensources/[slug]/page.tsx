@@ -70,7 +70,11 @@ export default async function OpenSourcePost({
             {post.techStack.map((tech) => {
               const Icon = stackIcon(tech);
               return (
-                <Badge key={tech} variant="secondary" className="gap-1">
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="gap-1 font-normal"
+                >
                   <Icon className="h-4 w-4" />
                   {tech}
                 </Badge>

@@ -63,7 +63,7 @@ export default function OpenSourcePage() {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="gap-1"
+                            className="gap-1 font-normal"
                           >
                             <Icon className="h-4 w-4" />
                             {tech}

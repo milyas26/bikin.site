@@ -7,7 +7,7 @@ import ThemeToggle from "./theme-toggle";
 
 const items = [
   { href: "/", label: "Home", Icon: Home },
-  { href: "/opensources", label: "Opensources", Icon: GitBranch },
+  { href: "/projects", label: "Projects", Icon: GitBranch },
   { href: "/blog", label: "Blog", Icon: FileText },
   { href: "/portfolios", label: "Portfolios", Icon: Briefcase },
   // { href: "/bookmarks", label: "Bookmarks", Icon: Bookmark },

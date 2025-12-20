@@ -22,11 +22,11 @@ export type Blog = {
   slug: string
 }
 
-export type OpenSource = {
+export type Project = {
   /** File path relative to `contentDirPath` */
   _id: string
   _raw: Local.RawDocumentData
-  type: 'OpenSource'
+  type: 'Project'
   title: string
   date: IsoDateTimeString
   description: string
@@ -45,8 +45,8 @@ export type OpenSource = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Blog | OpenSource
-export type DocumentTypeNames = 'Blog' | 'OpenSource'
+export type DocumentTypes = Blog | Project
+export type DocumentTypeNames = 'Blog' | 'Project'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
@@ -54,7 +54,7 @@ export type NestedTypeNames = never
 export type DataExports = {
   allDocuments: DocumentTypes[]
   allBlogs: Blog[]
-  allOpenSources: OpenSource[]
+  allProjects: Project[]
 }
 
 
@@ -75,7 +75,7 @@ declare global {
 
 export type DocumentTypeMap = {
   Blog: Blog
-  OpenSource: OpenSource
+  Project: Project
 }
 
 export type NestedTypeMap = {

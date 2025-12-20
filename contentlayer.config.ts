@@ -18,9 +18,9 @@ export const Blog = defineDocumentType(() => ({
   },
 }));
 
-export const OpenSource = defineDocumentType(() => ({
-  name: "OpenSource",
-  filePathPattern: "opensources/*.mdx",
+export const Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "projects/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -32,12 +32,12 @@ export const OpenSource = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace("opensources/", ""),
+      resolve: (doc) => doc._raw.flattenedPath.replace("projects/", ""),
     },
   },
 }));
 
 export default makeSource({
   contentDirPath: "data",
-  documentTypes: [Blog, OpenSource],
+  documentTypes: [Blog, Project],
 });

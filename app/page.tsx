@@ -3,6 +3,13 @@ import WorkTimeline from "@/components/WorkTimeline";
 import MyToolbox from "@/components/MyToolbox";
 import GetInTouch from "@/components/GetInTouch";
 import DownloadCV from "@/components/DownloadCV";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Senior Frontend Engineer",
+  description: "Portofolio, blog, dan karya open source dari Muhammad Ilyas.",
+  urlPath: "/",
+});
 
 export default function Home() {
   return (

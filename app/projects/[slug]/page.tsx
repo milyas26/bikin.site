@@ -1,7 +1,7 @@
 import { mdxComponents } from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
 import { stackIcon } from "@/lib/utils";
-import { allOpenSources } from "contentlayer/generated";
+import { allProjects } from "contentlayer/generated";
 import { CalendarDays } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
 
 export const generateStaticParams = async () => {
-  return allOpenSources.map((post) => ({
+  return allProjects.map((post) => ({
     slug: post.slug,
   }));
 };
@@ -20,23 +20,23 @@ export const generateMetadata = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const post = allOpenSources.find((post) => post.slug === slug);
+  const post = allProjects.find((post) => post.slug === slug);
   if (!post) return;
   return buildMetadata({
     title: post.title,
     description: post.description,
-    urlPath: `/opensources/${post.slug}`,
+    urlPath: `/projects/${post.slug}`,
     image: post.thumbnail,
   });
 };
 
-export default async function OpenSourcePost({
+export default async function ProjectPost({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = allOpenSources.find((post) => post.slug === slug);
+  const post = allProjects.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

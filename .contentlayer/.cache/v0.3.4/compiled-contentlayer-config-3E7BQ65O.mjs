@@ -17,9 +17,9 @@ var Blog = defineDocumentType(() => ({
     }
   }
 }));
-var OpenSource = defineDocumentType(() => ({
-  name: "OpenSource",
-  filePathPattern: "opensources/*.mdx",
+var Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "projects/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -31,17 +31,17 @@ var OpenSource = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace("opensources/", "")
+      resolve: (doc) => doc._raw.flattenedPath.replace("projects/", "")
     }
   }
 }));
 var contentlayer_config_default = makeSource({
   contentDirPath: "data",
-  documentTypes: [Blog, OpenSource]
+  documentTypes: [Blog, Project]
 });
 export {
   Blog,
-  OpenSource,
+  Project,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-AMLKAV5M.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-3E7BQ65O.mjs.map

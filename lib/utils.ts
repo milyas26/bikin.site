@@ -13,6 +13,10 @@ import {
   Hexagon,
   Rocket,
   FileCode,
+  Zap,
+  Wind,
+  Palette,
+  Activity,
 } from "lucide-react";
 
 export function cn(...inputs: ClassValue[]) {
@@ -21,6 +25,11 @@ export function cn(...inputs: ClassValue[]) {
 
 export const stackIcon = (label: string) => {
   const key = label.toLowerCase();
+  if (key.includes("vite")) return Zap;
+  if (key.includes("tailwind")) return Wind;
+  if (key.includes("shadcn")) return Palette;
+  if (key.includes("react query")) return Activity;
+  if (key.includes("zustand")) return Layers;
   if (key.includes("react")) return Atom;
   if (key.includes("next")) return Braces;
   if (key.includes("bootstrap")) return Box;

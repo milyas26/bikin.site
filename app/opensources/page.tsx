@@ -43,7 +43,7 @@ export default function OpenSourcePage() {
                     </Badge>
                   </div>
                   {post.thumbnail && (
-                    <div className="relative aspect-video h-32 md:h-40 overflow-hidden bg-muted flex">
+                    <div className="relative aspect-video h-full md:h-48 overflow-hidden bg-muted flex">
                       <Image
                         src={post.thumbnail}
                         alt={post.title}
@@ -63,7 +63,7 @@ export default function OpenSourcePage() {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="gap-1 font-normal"
+                            className="gap-1 font-normal px-1"
                           >
                             <Icon className="h-4 w-4" />
                             {tech}

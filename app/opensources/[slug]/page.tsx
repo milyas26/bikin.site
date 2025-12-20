@@ -73,7 +73,7 @@ export default async function OpenSourcePost({
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className="gap-1 font-normal"
+                  className="gap-1 font-normal px-1"
                 >
                   <Icon className="h-4 w-4" />
                   {tech}

@@ -12,8 +12,6 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
-export const revalidate = 60;
-
 export const metadata = buildMetadata({
   title: "Portofolios",
   description: "Daftar proyek dan karya yang pernah saya buat.",

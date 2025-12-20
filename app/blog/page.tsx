@@ -2,8 +2,6 @@ import { buildMetadata } from "@/lib/seo";
 import { allBlogs } from "contentlayer/generated";
 import Link from "next/link";
 
-export const revalidate = 60;
-
 export const metadata = buildMetadata({
   title: "Blogs",
   description: "Tulisan dan catatan teknis dari Muhammad Ilyas.",

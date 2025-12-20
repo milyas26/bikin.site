@@ -18,8 +18,6 @@ import { buildMetadata } from "@/lib/seo";
 import { getAllPortfolios, getPortfolioBySlug } from "@/data/json/portfolios";
 import { Card, CardContent } from "@/components/ui/card";
 
-export const revalidate = 60;
-
 type Stack = { id?: number; stack: string };
 type Pekerjaan = { id?: number; text: string };
 type Portfolio = {

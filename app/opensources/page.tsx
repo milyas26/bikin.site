@@ -2,8 +2,6 @@ import { buildMetadata } from "@/lib/seo";
 import { allOpenSources } from "contentlayer/generated";
 import Link from "next/link";
 
-export const revalidate = 60;
-
 export const metadata = buildMetadata({
   title: "Open Source",
   description: "Proyek-proyek open source yang saya buat.",

@@ -8,13 +8,13 @@ export const mdxComponents = {
     <h2 className="text-lg md:text-xl font-semibold mt-8 mb-4" {...props} />
   ),
   h3: (props: ComponentProps<"h3">) => (
-    <h3 className="text-md md:text-lg font-semibold mt-6 mb-3" {...props} />
+    <h3 className="text-md md:text-lg font-semibold mt-4 mb-3" {...props} />
   ),
   h4: (props: ComponentProps<"h4">) => (
-    <h4 className="text-base md:text-md font-semibold mt-6 mb-3" {...props} />
+    <h4 className="text-base md:text-md font-semibold mt-4 mb-3" {...props} />
   ),
   p: (props: ComponentProps<"p">) => (
-    <p className="text-sm md:text-base leading-7 not-first:mt-6" {...props} />
+    <p className="text-sm md:text-base leading-7 not-first:mt-4" {...props} />
   ),
   ul: (props: ComponentProps<"ul">) => (
     <ul className="my-4 list-disc [&>li]:mt-2" {...props} />
@@ -27,23 +27,19 @@ export const mdxComponents = {
   ),
   blockquote: (props: ComponentProps<"blockquote">) => (
     <blockquote
-      className="mt-6 border-l-2 border-slate-300 pl-6 italic text-muted-foreground"
+      className="mt-4 border-l-2 border-slate-300 pl-4 italic text-muted-foreground"
       {...props}
     />
   ),
   img: (props: ComponentProps<"img">) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      className="rounded-md border my-4 w-full"
-      alt={props.alt || ""}
-      {...props}
-    />
+    <img className="rounded-md my-4 w-full" alt={props.alt || ""} {...props} />
   ),
   hr: (props: ComponentProps<"hr">) => (
     <hr className="my-4 md:my-8" {...props} />
   ),
   table: (props: ComponentProps<"table">) => (
-    <div className="my-6 w-full overflow-y-auto">
+    <div className="my-4 w-full overflow-y-auto">
       <table className="w-full" {...props} />
     </div>
   ),
@@ -64,7 +60,7 @@ export const mdxComponents = {
   ),
   pre: (props: ComponentProps<"pre">) => (
     <pre
-      className="mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4 px-4 text-white w-fit mx-auto"
+      className="mb-4 mt-4 overflow-x-auto rounded-lg border bg-black py-4 px-4 text-white w-fit mx-auto"
       {...props}
     />
   ),

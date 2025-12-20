@@ -7,7 +7,8 @@ var Blog = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
-    description: { type: "string", required: true }
+    description: { type: "string", required: true },
+    thumbnail: { type: "string", required: false }
   },
   computedFields: {
     slug: {
@@ -23,7 +24,9 @@ var OpenSource = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
-    description: { type: "string", required: true }
+    description: { type: "string", required: true },
+    thumbnail: { type: "string", required: false },
+    techStack: { type: "list", of: { type: "string" }, required: false }
   },
   computedFields: {
     slug: {
@@ -41,4 +44,4 @@ export {
   OpenSource,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-IA4FLIZT.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-AMLKAV5M.mjs.map

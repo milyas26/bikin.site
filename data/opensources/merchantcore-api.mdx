@@ -1,0 +1,85 @@
+---
+title: "MerchantCore API"
+date: "2025-12-18"
+description: "MerchantCore API is an open-source online shop backend API designed to support multiple online shops using a multi-schema architecture"
+thumbnail: "https://ik.imagekit.io/twd1hnke581/bikin.site/merchantcore-api_-a1QIDGaJ.png"
+techStack: ["TypeScript", "Fastify", "Prisma", "PostgreSQL"]
+
+---
+
+MerchantCore API is an open-source online shop backend API designed to support **multiple online shops using a multi-schema architecture**.
+
+[View Repository on GitHub](https://github.com/milyas26/merchantcore-api)
+
+Unlike traditional setups that require separate backend deployments for each store, MerchantCore API enables a single API instance to serve many online shops. Each shop can maintain a different frontstore while sharing the same robust backend infrastructure. Crucially, data isolation is achieved by separating database schemas, ensuring that each shop's data remains distinct and secure.
+
+## Problem Statement
+
+Managing multiple online shops often comes with significant challenges:
+
+- **Duplicated backend services**: Running separate API instances for each shop consumes unnecessary resources.
+- **Multiple databases or deployments**: Managing infrastructure becomes complex and error-prone.
+- **High maintenance cost**: Updates and bug fixes must be applied individually to each deployment.
+- **Poor scalability**: Scaling isolated services is inefficient compared to a unified system.
+
+MerchantCore API solves these problems by consolidating backend logic into a single, multi-tenant service that significantly reduces operational overhead.
+
+## Multi-Schema Architecture
+
+The API leverages PostgreSQL schemas to provide robust multi-tenancy:
+
+- **One database**: A single PostgreSQL instance hosts all data.
+- **One schema per shop**: Each shop is assigned its own dedicated schema.
+- **Same table structure**: All schemas share the same table definitions and API logic.
+
+```
++-------------------+
+|     PostgreSQL    |
+|      Database     |
+|                   |
+|  +-------------+  |
+|  | Schema:     |  |
+|  | Shop A      |  |
+|  +-------------+  |
+|                   |
+|  +-------------+  |
+|  | Schema:     |  |
+|  | Shop B      |  |
+|  +-------------+  |
+|                   |
+|  +-------------+  |
+|  | Schema:     |  |
+|  | Shop C      |  |
+|  +-------------+  |
++-------------------+
+```
+
+## Request Flow
+
+Incoming requests are routed efficiently to the correct data source:
+
+1.  **Shop identification**: The system identifies the target shop via the subdomain, a custom header, or a unique shop code.
+2.  **Dynamic schema resolution**: The API determines which database schema corresponds to the identified shop.
+3.  **Queries executed**: All database queries are executed within the context of the resolved schema.
+
+## Tech Stack
+
+- **TypeScript**: Ensures type safety and improves developer productivity.
+- **Fastify**: Provides a high-performance, low-overhead web framework.
+- **Prisma**: Simplifies database access and schema management.
+- **PostgreSQL**: Offers robust support for multi-schema architectures.
+
+## Benefits
+
+- **Scalability**: Easily add new shops without provisioning new infrastructure.
+- **Maintainability**: Update the core API once, and changes apply to all shops.
+- **Data isolation**: Strict separation of data ensures security and privacy for each shop.
+- **Single backend**: Power multiple distinct frontstores from one central engine.
+
+## Open Source Philosophy
+
+This project is open source and community-driven. We believe in accessible, high-quality e-commerce infrastructure. By sharing this work, we aim to collaborate with developers worldwide to improve, extend, and adapt the platform for diverse needs.
+
+## Summary
+
+MerchantCore API delivers a "one API, many shops" solution, combining the efficiency of a single backend with the security of isolated data schemas.

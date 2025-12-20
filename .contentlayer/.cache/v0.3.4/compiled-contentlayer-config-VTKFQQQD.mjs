@@ -1,24 +1,22 @@
+// contentlayer.config.ts
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-
-export const Blog = defineDocumentType(() => ({
+var Blog = defineDocumentType(() => ({
   name: "Blog",
   filePathPattern: "blogs/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
-    description: { type: "string", required: true },
-    thumbnail: { type: "string", required: false },
+    description: { type: "string", required: true }
   },
   computedFields: {
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace("blogs/", ""),
-    },
-  },
+      resolve: (doc) => doc._raw.flattenedPath.replace("blogs/", "")
+    }
+  }
 }));
-
-export const OpenSource = defineDocumentType(() => ({
+var OpenSource = defineDocumentType(() => ({
   name: "OpenSource",
   filePathPattern: "opensources/*.mdx",
   contentType: "mdx",
@@ -26,18 +24,22 @@ export const OpenSource = defineDocumentType(() => ({
     title: { type: "string", required: true },
     date: { type: "date", required: true },
     description: { type: "string", required: true },
-    thumbnail: { type: "string", required: false },
-    techStack: { type: "list", of: { type: "string" }, required: false },
+    thumbnail: { type: "string", required: false }
   },
   computedFields: {
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace("opensources/", ""),
-    },
-  },
+      resolve: (doc) => doc._raw.flattenedPath.replace("opensources/", "")
+    }
+  }
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
   contentDirPath: "data",
-  documentTypes: [Blog, OpenSource],
+  documentTypes: [Blog, OpenSource]
 });
+export {
+  Blog,
+  OpenSource,
+  contentlayer_config_default as default
+};
+//# sourceMappingURL=compiled-contentlayer-config-VTKFQQQD.mjs.map

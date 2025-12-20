@@ -1,6 +1,9 @@
 import { buildMetadata } from "@/lib/seo";
 import { allOpenSources } from "contentlayer/generated";
 import Link from "next/link";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata = buildMetadata({
   title: "Open Source",
@@ -20,17 +23,46 @@ export default function OpenSourcePage() {
         {posts.map((post) => (
           <li key={post.slug}>
             <Link href={`/opensources/${post.slug}`} className="block group">
-              <h2 className="text-lg font-medium group-hover:underline">
-                {post.title}
-              </h2>
-              <div className="text-sm text-muted-foreground mt-1">
-                {new Date(post.date).toLocaleDateString("id-ID", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </div>
-              <p className="text-muted-foreground mt-2">{post.description}</p>
+              <Card className="overflow-hidden transition-colors hover:bg-muted/50 space-y-2">
+                <div className="p-4 space-y-1">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="group-hover:underline font-semibold">
+                      {post.title}
+                    </p>
+                    <Badge variant="default">
+                      <div>
+                        {new Date(post.date).toLocaleDateString("id-ID", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </div>
+                    </Badge>
+                  </div>
+                  {post.thumbnail && (
+                    <div className="relative aspect-video h-20 md:h-40 overflow-hidden bg-muted flex">
+                      <Image
+                        src={post.thumbnail}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+                  <p className="text-muted-foreground text-sm">
+                    {post.description}
+                  </p>
+                  {post.techStack && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.techStack.map((tech) => (
+                        <Badge key={tech} variant="default">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Card>
             </Link>
           </li>
         ))}

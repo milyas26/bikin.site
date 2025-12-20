@@ -16,6 +16,7 @@ export type Blog = {
   title: string
   date: IsoDateTimeString
   description: string
+  thumbnail?: string | undefined
   /** MDX file body */
   body: MDX
   slug: string
@@ -29,6 +30,8 @@ export type OpenSource = {
   title: string
   date: IsoDateTimeString
   description: string
+  thumbnail?: string | undefined
+  techStack?: string[] | undefined
   /** MDX file body */
   body: MDX
   slug: string

@@ -27,23 +27,21 @@ export default function OpenSourcePage() {
             <Link href={`/opensources/${post.slug}`} className="block group">
               <Card className="overflow-hidden transition-colors hover:bg-muted/50 space-y-2">
                 <div className="p-4 space-y-1">
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="group-hover:underline font-semibold">
-                      {post.title}
-                    </p>
-                    <Badge variant="secondary" className="rounded-xs px-1">
-                      <div className="flex items-center">
-                        <CalendarDays className="inline-block mr-2 h-4 w-4" />
-                        {new Date(post.date).toLocaleDateString("id-ID", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </div>
-                    </Badge>
-                  </div>
+                  <p className="group-hover:underline font-semibold">
+                    {post.title}
+                  </p>
+                  <Badge variant="secondary" className="rounded-xs px-1">
+                    <div className="flex items-center text-xs font-normal">
+                      <CalendarDays className="inline-block mr-1 h-3 w-3" />
+                      {new Date(post.date).toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </div>
+                  </Badge>
                   {post.thumbnail && (
-                    <div className="relative aspect-video h-full md:h-48 overflow-hidden bg-muted flex">
+                    <div className="relative aspect-video h-full md:h-48 overflow-hidden bg-muted flex rounded-md">
                       <Image
                         src={post.thumbnail}
                         alt={post.title}

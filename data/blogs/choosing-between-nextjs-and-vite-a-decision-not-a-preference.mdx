@@ -1,0 +1,179 @@
+---
+title: "Choosing Between Next.js and Vite: A Decision, Not a Preference"
+date: "2025-12-20"
+description: "Learn how to choose between Next.js and Vite by understanding your product needs, user behavior, and real trade-offs, not trends or personal preference."
+thumbnail: "https://ik.imagekit.io/twd1hnke581/bikin.site/vite-vs-next-1_AS9sQVLmE.png"
+---
+
+When starting a new frontend project, the hard part is usually **not how to use a framework**,
+but **which framework to choose—and why**.
+
+Today, there are many frontend frameworks. Most of them are free, stable, and good enough for real products.
+We have Next.js, Vite, Astro, Vue, Angular, and more. The real problem is not quality, but **context**.
+
+Because my experience is mostly in the React ecosystem, and to keep this article focused, I will only talk about **Next.js and Vite**.
+Not because other frameworks are bad, but because **technical decisions are easier to understand when the scope is clear**.
+
+---
+
+## Website vs Web App: The Root of Every Decision
+
+Before comparing Next.js and Vite, there is one important question to answer:
+
+**Are we building a website or a web app?**
+
+This sounds simple, but many teams get this wrong.
+
+A **website** is mainly about **content**.
+Users visit, read something, and leave.
+The usual pattern is: **visit → read → leave**.
+
+Examples:
+
+- blogs
+- landing pages
+- company websites
+- news sites
+
+A **web app** is mainly about **interaction**.
+Users log in, do tasks, click around, and stay longer.
+The pattern is: **login → work → stay**.
+
+Examples:
+
+- dashboards
+- admin panels
+- SaaS products
+- internal tools
+
+Once you understand this difference, many technical decisions become clearer.
+
+---
+
+## Rendering Strategy: What Problem Is the Framework Solving?
+
+After you know what kind of product you are building, the next question is:
+
+**When and where is the UI created?**
+
+This is called a rendering strategy.
+
+Public websites need content to **show up immediately**.
+Users do not want to wait for JavaScript to load.
+Search engines also need ready HTML to read.
+
+Web apps care more about **fast interaction**.
+The goal is not who shows content first, but who feels fast after loading.
+
+Next.js and Vite exist because they focus on **different needs**.
+
+---
+
+## Why Next.js Feels Heavy During Development
+
+Many developers feel that Next.js is slow during development.
+Page changes feel slower, hot reload takes longer, and laptops get hot.
+
+This is not a bug.
+It is a **design choice**.
+
+In development mode, Next.js:
+
+- runs server-side rendering
+- rebuilds many internal graphs
+- enables React Strict Mode
+- tries to behave like production
+
+The goal is simple:
+**find problems early, before production**.
+
+Next.js trades development speed for:
+
+- safety
+- consistency
+- stable production behavior
+
+---
+
+## Why Vite Feels Fast and Easy
+
+Vite feels very fast during development because **it does very little work**.
+
+In dev mode, Vite:
+
+- does not bundle the app
+- does not run server-side rendering
+- serves files to the browser only when needed
+
+Modern browsers do the rest.
+
+The result:
+
+- instant hot reload
+- fast feedback
+- developers can focus on UI and logic
+
+Vite trades production features for **developer experience**.
+
+---
+
+## Bundling, SSR, and the Complexity Budget
+
+Every advanced feature has a cost.
+
+Server-side rendering adds:
+
+- more complexity
+- more server work
+- harder debugging
+
+Bundling adds:
+
+- longer build times
+- heavier tools
+- slower feedback in development
+
+The real question is not “can we use it?”,
+but **“is it worth it for this product?”**
+
+Many small projects fail not because the tools are bad,
+but because they start **too complex too early**.
+
+---
+
+## Common Mistakes When Choosing a Framework
+
+Some mistakes happen again and again:
+
+- using Next.js for internal dashboards
+- using Vite for SEO-heavy websites
+- choosing a framework because it is popular
+- using the same stack for every project
+
+A framework is not your identity.
+It is just a tool.
+
+---
+
+## When to Use Next.js and When to Use Vite
+
+Use **Next.js** if:
+
+- you are building a public website
+- SEO is very important
+- first load speed matters
+- content must be visible quickly
+
+Use **Vite** if:
+
+- you are building a web app
+- users must log in first
+- interaction is more important than SEO
+- developer speed matters
+
+If you are unsure, the simpler option is often the safer one.
+
+> Choosing a frontend framework is not about preference or trends.
+> It is about understanding the problem, accepting trade-offs, and owning the result.
+
+When that decision is clear, almost any framework can be the right choice.

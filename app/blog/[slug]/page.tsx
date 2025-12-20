@@ -2,6 +2,10 @@ import { allBlogs } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxComponents } from "@/components/mdx-components";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { CalendarDays } from "lucide-react";
 
 export const generateStaticParams = async () => {
   return allBlogs.map((post) => ({
@@ -9,7 +13,11 @@ export const generateStaticParams = async () => {
   }));
 };
 
-export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const { slug } = await params;
   const post = allBlogs.find((post) => post.slug === slug);
   if (!post) return;
@@ -17,10 +25,15 @@ export const generateMetadata = async ({ params }: { params: Promise<{ slug: str
     title: post.title,
     description: post.description,
     urlPath: `/blog/${post.slug}`,
+    image: post.thumbnail,
   });
 };
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const post = allBlogs.find((post) => post.slug === slug);
 
@@ -31,17 +44,29 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <article className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-        <div className="text-sm text-muted-foreground">
-          {new Date(post.date).toLocaleDateString("id-ID", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </div>
+        <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
+        <Badge variant="secondary">
+          <div className="flex items-center">
+            <CalendarDays className="inline-block mr-2 h-4 w-4" />
+            {new Date(post.date).toLocaleDateString("id-ID", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </div>
+        </Badge>
+        {post.thumbnail && (
+          <Image
+            src={post.thumbnail}
+            alt={post.title}
+            width={1200}
+            height={600}
+            className="mt-6 rounded-lg border w-full"
+          />
+        )}
       </header>
       <div className="prose prose-neutral dark:prose-invert max-w-none">
-        <MDXRemote source={post.body.raw} />
+        <MDXRemote source={post.body.raw} components={mdxComponents} />
       </div>
     </article>
   );

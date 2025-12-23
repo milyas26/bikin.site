@@ -32,7 +32,7 @@ export default function PortfoliosPage() {
   return (
     <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold">Portofolios</h1>
+        <h1 className="text-2xl font-semibold">Portfolios</h1>
         <p className="text-zinc-500">
           List of projects and works that I have done.
         </p>

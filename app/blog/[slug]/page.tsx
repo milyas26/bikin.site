@@ -6,6 +6,7 @@ import { mdxComponents } from "@/components/mdx-components";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays } from "lucide-react";
+import { formatDate } from "@/lib/utils";
 
 export const generateStaticParams = async () => {
   return allBlogs.map((post) => ({
@@ -48,11 +49,7 @@ export default async function BlogPost({
         <Badge variant="secondary">
           <div className="flex items-center">
             <CalendarDays className="inline-block mr-2 h-4 w-4" />
-            {new Date(post.date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {formatDate(post.date, "en-US")}
           </div>
         </Badge>
         {post.thumbnail && (

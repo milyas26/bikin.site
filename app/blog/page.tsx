@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { buildMetadata } from "@/lib/seo";
+import { formatDate } from "@/lib/utils";
 import { allBlogs } from "contentlayer/generated";
 import { CalendarDays } from "lucide-react";
 import Image from "next/image";
@@ -43,11 +44,7 @@ export default function BlogPage() {
                     <Badge variant="secondary" className="rounded-xs px-1">
                       <div className="flex items-center text-xs font-normal">
                         <CalendarDays className="inline-block mr-1 h-3 w-3" />
-                        {new Date(post.date).toLocaleDateString("id-ID", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
+                        {formatDate(post.date, "en-US")}
                       </div>
                     </Badge>
                     <p className="text-muted-foreground text-sm line-clamp-3">

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { stackIcon } from "@/lib/utils";
+import { formatDate, stackIcon } from "@/lib/utils";
 import { CalendarDays } from "lucide-react";
 
 export const metadata = buildMetadata({
@@ -33,11 +33,7 @@ export default function ProjectPage() {
                   <Badge variant="secondary" className="rounded-xs px-1">
                     <div className="flex items-center text-xs font-normal">
                       <CalendarDays className="inline-block mr-1 h-3 w-3" />
-                      {new Date(post.date).toLocaleDateString("id-ID", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
+                      {formatDate(post.date, "en-US")}
                     </div>
                   </Badge>
                   {post.thumbnail && (

@@ -1,6 +1,6 @@
 import { mdxComponents } from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
-import { stackIcon } from "@/lib/utils";
+import { formatDate, stackIcon } from "@/lib/utils";
 import { allProjects } from "contentlayer/generated";
 import { CalendarDays } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -49,11 +49,7 @@ export default async function ProjectPost({
         <Badge variant="secondary">
           <div className="flex items-center">
             <CalendarDays className="inline-block mr-2 h-4 w-4" />
-            {new Date(post.date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {formatDate(post.date, "en-US")}
           </div>
         </Badge>
         {post.thumbnail && (

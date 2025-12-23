@@ -23,6 +23,15 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function formatDate(input: string | Date, locale = "en-US") {
+  const d = typeof input === "string" ? new Date(input) : input;
+  return d.toLocaleDateString(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 export const stackIcon = (label: string) => {
   const key = label.toLowerCase();
   if (key.includes("vite")) return Zap;

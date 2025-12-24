@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 const SITE_NAME = 'Muhammad Ilyas'
 const SITE_TITLE = 'Muhammad Ilyas — Senior Frontend Engineer'
 const SITE_DESCRIPTION = 'Portfolio, blog, dan karya open source dari Muhammad Ilyas.'
-const DEFAULT_IMAGE = '/img/profile.jpeg'
+const DEFAULT_IMAGE = "/img/card-name.png";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bikin.site'
 

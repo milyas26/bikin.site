@@ -9,6 +9,7 @@ export const metadata = buildMetadata({
   title: "Senior Frontend Engineer",
   description: "Portofolio, blog, dan karya open source dari Muhammad Ilyas.",
   urlPath: "/",
+  // image: "/img/card-name.png",
 });
 
 export default function Home() {

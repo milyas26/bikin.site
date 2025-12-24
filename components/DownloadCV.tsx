@@ -9,7 +9,7 @@ export default function DownloadCV() {
       </p>
       <div>
         <a
-          href="/files/cv.pdf"
+          href="/files/muhammad-ilyas-resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"

@@ -17,7 +17,7 @@ const page = () => {
           <div className="text-left">
             <h1 className="text-xl font-bold">MUHAMMAD ILYAS</h1>
             <p className="text-zinc-600 dark:text-zinc-300 text-lg font-medium mb-1">
-              Senior Frontend Engineer
+              Senior Fullstack Engineer
             </p>
             <div className="flex items-start gap-2">
               <svg
@@ -43,6 +43,8 @@ const page = () => {
                   "Typescript",
                   "Tailwind",
                   "Shadcn",
+                  "Nodejs",
+                  "PostgreSQL",
                 ].map((item) => (
                   <Badge
                     key={item}

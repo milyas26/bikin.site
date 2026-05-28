@@ -7,10 +7,10 @@ import { buildMetadata } from "@/lib/seo";
 import { getYearsOfExperience } from "@/lib/utils";
 
 export const metadata = buildMetadata({
-  title: "Fullstack Engineer",
+  title: "Senior Fullstack Engineer",
   description: "Portofolio, blog, dan karya open source dari Muhammad Ilyas.",
   urlPath: "/",
-  image: "/img/card-name.jpg",
+  image: "/img/fullstack.jpg",
 });
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
           <div className="me">
             <h1 className="text-2xl font-semibold">Muhammad Ilyas</h1>
             <p className="text-zinc-600 dark:text-zinc-300">
-              Senior Frontend Engineer
+              Senior Fullstack Engineer
             </p>
           </div>
           <div className="group relative mx-auto h-80 max-w-md md:h-96 md:max-w-lg">

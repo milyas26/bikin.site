@@ -19,6 +19,12 @@ import {
   GitBranch,
   Share2,
   Box,
+  Network,
+  Bot,
+  Cpu,
+  Brain,
+  GitGraph,
+  Monitor,
 } from "lucide-react";
 
 export default function MyToolbox() {
@@ -100,6 +106,42 @@ export default function MyToolbox() {
               { label: "GitHub", icon: Github },
               { label: "CI/CD workflows", icon: GitBranch },
               { label: "API design & system integration", icon: Share2 },
+            ].map(({ label, icon: Icon }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
+              >
+                <Icon className="h-4 w-4" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">AI</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "9router", icon: Network },
+              { label: "Opencode", icon: Bot },
+              { label: "DeepSeek V4", icon: Cpu },
+              { label: "Claude Opus", icon: Brain },
+              { label: "Graphify", icon: GitGraph },
+            ].map(({ label, icon: Icon }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
+              >
+                <Icon className="h-4 w-4" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">Workstation</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: "MacBook Pro M4 Pro (24GB RAM, 512GB SSD, 12‑core CPU, 16‑core GPU)", icon: Monitor },
             ].map(({ label, icon: Icon }) => (
               <span
                 key={label}

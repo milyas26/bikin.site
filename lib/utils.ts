@@ -23,6 +23,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function getYearsOfExperience(since: Date) {
+  const now = new Date();
+  const years = now.getFullYear() - since.getFullYear();
+  const monthDiff = now.getMonth() - since.getMonth();
+  return monthDiff < 0 ? years - 1 : years;
+}
+
 export function formatDate(input: string | Date, locale = "en-US") {
   const d = typeof input === "string" ? new Date(input) : input;
   return d.toLocaleDateString(locale, {

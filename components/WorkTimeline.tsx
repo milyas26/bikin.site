@@ -2,23 +2,36 @@ import { Briefcase } from "lucide-react";
 
 const items = [
   {
+    title: "Fullstack Engineer — Jubelio",
+    startDate: "Jan 2026",
+    description:
+      "Developing fullstack features and microservices for the Jubelio omnichannel ecosystem, building multitenant solutions with React, Next.js, Node.js, and PostgreSQL. Contributing to fullstack initiatives and optimizing system-wide performance.",
+  },
+  {
     title: "Frontend Engineer — Jubelio",
+    startDate: "Des 2021",
+    endDate: "Jan 2026",
     description:
       "Built and improved core frontend features, focusing on performance, code quality, and scalable architecture across a large product ecosystem.",
   },
   {
     title: "Senior Fullstack Engineer — Wacaku",
+    startDate: "Agu 2023",
+    endDate: "Mei 2025",
     description:
       "Leading development of a creative writing platform by building scalable features using Next.js, Node.js, and Golang. Delivering strong product improvements, enhancing content creation workflows, and AI-powered writing tools.",
-      
   },
   {
     title: "Frontend Engineer — Qoin Digital Indonesia",
+    startDate: "Jul 2021",
+    endDate: "Des 2021",
     description:
       "Delivered responsive, high-quality interfaces by turning design concepts into functional UI, developing reusable components, and integrating them with backend APIs. Strengthened product reliability through coordination with Backend and QA teams and improved performance across multiple projects.",
   },
   {
     title: "Frontend Engineer — Dvoretsky",
+    startDate: "Jan 2021",
+    endDate: "Jul 2021",
     description:
       "Developed full website solutions using Laravel, MySQL, and Next.js, including building REST APIs and translating Figma designs into interactive web applications. Ensured smooth system integration and improved delivery quality through close collaboration with cross-functional teams.",
   },
@@ -40,6 +53,11 @@ export default function WorkTimeline() {
                 <p className="font-medium text-zinc-800 dark:text-zinc-100">
                   {item.title}
                 </p>
+                {item.startDate && (
+                  <p className="text-xs text-zinc-400 dark:text-zinc-500">
+                    {item.startDate} — {item.endDate ?? "Present"}
+                  </p>
+                )}
                 <p className="text-sm text-zinc-600 dark:text-zinc-300">
                   {item.description}
                 </p>

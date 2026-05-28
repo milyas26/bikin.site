@@ -4,15 +4,17 @@ import MyToolbox from "@/components/MyToolbox";
 import GetInTouch from "@/components/GetInTouch";
 import DownloadCV from "@/components/DownloadCV";
 import { buildMetadata } from "@/lib/seo";
+import { getYearsOfExperience } from "@/lib/utils";
 
 export const metadata = buildMetadata({
-  title: "Senior Frontend Engineer",
+  title: "Fullstack Engineer",
   description: "Portofolio, blog, dan karya open source dari Muhammad Ilyas.",
   urlPath: "/",
   image: "/img/card-name.jpg",
 });
 
 export default function Home() {
+  const years = getYearsOfExperience(new Date(2020, 0));
   return (
     <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-10">
       <section className="space-y-10">
@@ -50,12 +52,11 @@ export default function Home() {
         </div>
         <div className="space-y-4 text-zinc-600 dark:text-zinc-300 text-sm md:text-base pt-2 md:pt-10">
           <p>
-            I’m a developer who loves building fast, clean, and easy-to-use web
-            experiences. Most of my work happens in the frontend with React
-            ecosystem, particularly Next.js and Vite, but I also jump into
-            backend work with Node.js and PostgreSQL when the project needs it.
-            I care a lot about good structure, clear code, and performance that
-            actually feels smooth to users.
+            I’m a <strong>Fullstack Engineer</strong> with <strong>{years}+ years of experience</strong> with <strong>strong
+            frontend expertise</strong>, building fast, clean, and easy-to-use web experiences. My core strength is
+            the React ecosystem, particularly Next.js and Vite, but I also work
+            on the backend with Node.js and PostgreSQL. I care about good
+            structure, clear code, and performance that feels smooth to users.
           </p>
           <p>
             I write about the things I learn along the way, small improvements,

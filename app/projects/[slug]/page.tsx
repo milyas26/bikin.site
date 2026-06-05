@@ -2,9 +2,10 @@ import { mdxComponents } from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, stackIcon } from "@/lib/utils";
 import { allProjects } from "contentlayer/generated";
-import { CalendarDays } from "lucide-react";
+import { ArrowLeft, CalendarDays } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
 
@@ -43,9 +44,18 @@ export default async function ProjectPost({
   }
 
   return (
-    <article className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen">
+    <article className="mx-auto max-w-2xl px-4 py-10 md:py-20 min-h-screen">
+      <div className="mb-8">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-1.5 font-mono-code text-xs text-muted-foreground hover:text-accent transition-colors duration-150"
+        >
+          <ArrowLeft size={12} />
+          Projects
+        </Link>
+      </div>
       <header className="mb-8">
-        <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
+        <h1 className="font-display text-3xl md:text-4xl font-black leading-tight tracking-tight mb-3">{post.title}</h1>
         <Badge variant="secondary">
           <div className="flex items-center">
             <CalendarDays className="inline-block mr-2 h-4 w-4" />

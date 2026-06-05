@@ -9,36 +9,38 @@ const items = [
   { href: "/", label: "Home", Icon: Home },
   { href: "/projects", label: "Projects", Icon: GitBranch },
   { href: "/blog", label: "Blog", Icon: FileText },
-  { href: "/portfolios", label: "Portfolios", Icon: Briefcase },
-  // { href: "/bookmarks", label: "Bookmarks", Icon: Bookmark },
+  { href: "/portfolios", label: "Work", Icon: Briefcase },
 ];
 
 export default function BottomNav() {
   const pathname = usePathname();
   return (
-    <nav className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-fit max-w-lg rounded-xl border border-zinc-200 bg-white/90 p-2 shadow-lg backdrop-blur dark:border-zinc-800 dark:bg-black/70">
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex flex-1 items-center justify-around gap-2">
-          {items.map(({ href, label, Icon }) => {
-            const active =
-              pathname === href || (href !== "/" && pathname?.startsWith(href));
-            return (
-              <Link
-                key={href}
-                href={href}
-                aria-label={label}
-                className={`flex h-10 w-10 items-center justify-center rounded-md transition ${
-                  active
-                    ? "bg-zinc-100 text-zinc-900 ring-2 ring-zinc-300 dark:bg-zinc-900 dark:text-zinc-100 dark:ring-zinc-700"
-                    : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-900"
-                }`}
-              >
-                <Icon size={18} aria-hidden />
-              </Link>
-            );
-          })}
+    <nav className="fixed bottom-5 left-0 right-0 z-50 mx-auto w-fit rounded-sm border border-border bg-card/95 px-3 py-2 shadow-lg backdrop-blur-sm">
+      <div className="flex items-center gap-0.5">
+        {items.map(({ href, label, Icon }) => {
+          const active =
+            pathname === href || (href !== "/" && pathname?.startsWith(href));
+          return (
+            <Link
+              key={href}
+              href={href}
+              aria-label={label}
+              className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-sm transition-colors duration-150 ${
+                active
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+              }`}
+            >
+              <Icon size={13} aria-hidden />
+              <span className="font-mono-code text-[9px] leading-none tracking-wide">
+                {label}
+              </span>
+            </Link>
+          );
+        })}
+        <div className="ml-1 pl-1.5 border-l border-border self-stretch flex items-center">
+          <ThemeToggle />
         </div>
-        <ThemeToggle />
       </div>
     </nav>
   );

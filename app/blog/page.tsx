@@ -1,11 +1,9 @@
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { buildMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 import { allBlogs } from "contentlayer/generated";
-import { CalendarDays } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = buildMetadata({
   title: "Blogs",
@@ -19,40 +17,42 @@ export default function BlogPage() {
   );
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-6">
-      <h1 className="text-2xl font-semibold">Blogs</h1>
-      <ul className="space-y-6">
+    <main className="mx-auto max-w-2xl px-4 py-10 md:py-20 min-h-screen">
+      <div className="mb-10">
+        <p className="font-mono-code text-xs tracking-widest uppercase text-accent mb-3">
+          Writing
+        </p>
+        <h1 className="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight text-foreground">
+          Blog
+        </h1>
+      </div>
+      <ul className="divide-y divide-border">
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`} className="block group">
-              <Card className="overflow-hidden transition-colors hover:bg-muted/50 space-y-2">
-                <div className="grid grid-cols-3">
-                  {post.thumbnail && (
-                    <div className="relative h-full md:h-48 overflow-hidden bg-muted flex rounded-l-md col-span-1">
-                      <Image
-                        src={post.thumbnail}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                  )}
-                  <div className="p-4 space-y-1 col-span-2">
-                    <p className="group-hover:underline font-semibold line-clamp-2">
-                      {post.title}
-                    </p>
-                    <Badge variant="secondary" className="rounded-xs px-1">
-                      <div className="flex items-center text-xs font-normal">
-                        <CalendarDays className="inline-block mr-1 h-3 w-3" />
-                        {formatDate(post.date, "en-US")}
-                      </div>
-                    </Badge>
-                    <p className="text-muted-foreground text-sm line-clamp-3">
-                      {post.description}
-                    </p>
+            <Link href={`/blog/${post.slug}`} className="block group py-6">
+              <div className="flex items-start gap-5">
+                {post.thumbnail && (
+                  <div className="relative w-20 h-20 shrink-0 overflow-hidden rounded-sm border border-border bg-muted">
+                    <Image
+                      src={post.thumbnail}
+                      alt={post.title}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
                   </div>
+                )}
+                <div className="flex-1 space-y-1.5 min-w-0">
+                  <p className="font-display text-base md:text-lg font-semibold leading-snug group-hover:text-accent transition-colors line-clamp-2">
+                    {post.title}
+                  </p>
+                  <p className="font-mono-code text-xs text-muted-foreground">
+                    {formatDate(post.date, "en-US")}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                    {post.description}
+                  </p>
                 </div>
-              </Card>
+              </div>
             </Link>
           </li>
         ))}

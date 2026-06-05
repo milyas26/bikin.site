@@ -7,7 +7,7 @@ export const Card = React.forwardRef<HTMLDivElement, DivProps>(
     return (
       <div
         ref={ref}
-        className={`rounded-lg border border-zinc-200 bg-white text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 ${className}`}
+        className={`rounded-sm border border-border bg-card text-card-foreground ${className}`}
         {...props}
       />
     );
@@ -20,7 +20,7 @@ export const CardHeader = React.forwardRef<HTMLDivElement, DivProps>(
     return (
       <div
         ref={ref}
-        className={`flex flex-col space-y-1.5 p-4 ${className}`}
+        className={`flex flex-col space-y-1 p-4 ${className}`}
         {...props}
       />
     );
@@ -35,7 +35,7 @@ export const CardTitle = React.forwardRef<
   return (
     <h3
       ref={ref}
-      className={`text-base font-semibold leading-none tracking-tight ${className}`}
+      className={`font-display text-base font-semibold leading-snug tracking-tight ${className}`}
       {...props}
     />
   );
@@ -49,7 +49,7 @@ export const CardDescription = React.forwardRef<
   return (
     <p
       ref={ref}
-      className={`text-sm text-zinc-600 dark:text-zinc-300 ${className}`}
+      className={`text-sm text-muted-foreground leading-relaxed ${className}`}
       {...props}
     />
   );
@@ -70,7 +70,7 @@ export const CardFooter = React.forwardRef<HTMLDivElement, DivProps>(
     return (
       <div
         ref={ref}
-        className={`flex items-center gap-2 border-t border-zinc-200 p-4 dark:border-zinc-800 ${className}`}
+        className={`flex items-center gap-2 border-t border-border p-4 ${className}`}
         {...props}
       />
     );

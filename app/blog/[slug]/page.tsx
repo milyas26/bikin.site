@@ -4,8 +4,9 @@ import { buildMetadata } from "@/lib/seo";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx-components";
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays } from "lucide-react";
+import { ArrowLeft, CalendarDays } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 
 export const generateStaticParams = async () => {
@@ -43,9 +44,18 @@ export default async function BlogPost({
   }
 
   return (
-    <article className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen">
+    <article className="mx-auto max-w-2xl px-4 py-10 md:py-20 min-h-screen">
+      <div className="mb-8">
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-1.5 font-mono-code text-xs text-muted-foreground hover:text-accent transition-colors duration-150"
+        >
+          <ArrowLeft size={12} />
+          Blog
+        </Link>
+      </div>
       <header className="mb-8">
-        <h1 className="text-2xl font-bold mb-1">{post.title}</h1>
+        <h1 className="font-display text-3xl md:text-4xl font-black leading-tight tracking-tight mb-3">{post.title}</h1>
         <Badge variant="secondary">
           <div className="flex items-center">
             <CalendarDays className="inline-block mr-2 h-4 w-4" />

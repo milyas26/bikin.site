@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { getAllPortfolios, getPortfolioBySlug } from "@/data/json/portfolios";
@@ -63,10 +63,19 @@ export default async function PortfolioDetailPage({
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-6">
+    <main className="mx-auto max-w-2xl px-4 py-10 md:py-20 min-h-screen space-y-6">
+      <div>
+        <Link
+          href="/portfolios"
+          className="inline-flex items-center gap-1.5 font-mono-code text-xs text-muted-foreground hover:text-accent transition-colors duration-150"
+        >
+          <ArrowLeft size={12} />
+          Portfolios
+        </Link>
+      </div>
       <div className="space-y-0">
-        <h1 className="text-2xl font-semibold">{item.name}</h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.role}</p>
+        <h1 className="font-display text-3xl md:text-4xl font-black leading-tight tracking-tight">{item.name}</h1>
+        <p className="text-sm text-muted-foreground mt-1">{item.role}</p>
       </div>
       <Card className="overflow-hidden border-none shadow-none!">
         <CardContent>
@@ -87,26 +96,26 @@ export default async function PortfolioDetailPage({
           href={item.link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
+          className="inline-flex items-center gap-2 rounded-sm border border-border bg-card px-3 py-2 font-mono-code text-xs text-foreground hover:border-accent hover:text-accent transition-colors duration-150"
         >
           <span>{item.link.type}</span>
           <ExternalLink size={16} />
         </Link>
       )}
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold">Description</h2>
-        <p className="text-zinc-600 dark:text-zinc-300">{item.description}</p>
+        <h2 className="font-mono-code text-xs tracking-widest uppercase text-muted-foreground">Description</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
       </section>
       {Array.isArray(item.stacks) && item.stacks.length > 0 && (
         <section className="space-y-3">
-          <h2 className="text-lg font-semibold">Stacks</h2>
+        <h2 className="font-mono-code text-xs tracking-widest uppercase text-muted-foreground">Stacks</h2>
           <div className="flex flex-wrap gap-2">
             {item.stacks.map((s) => {
               const Icon = stackIcon(s.stack);
               return (
                 <span
                   key={s.id ?? s.stack}
-                  className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
+                  className="inline-flex items-center gap-1.5 rounded-sm border border-border bg-card px-2 py-1 font-mono-code text-xs text-foreground hover:border-accent hover:text-accent transition-colors duration-150"
                 >
                   <Icon className="h-4 w-4" />
                   {s.stack}
@@ -118,12 +127,12 @@ export default async function PortfolioDetailPage({
       )}
       {Array.isArray(item.pekerjaan) && item.pekerjaan.length > 0 && (
         <section className="space-y-3">
-          <h2 className="text-lg font-semibold">Jobs</h2>
-          <ul className="list-disc pl-6 space-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+        <h2 className="font-mono-code text-xs tracking-widest uppercase text-muted-foreground">Work done</h2>
+          <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
             {item.pekerjaan.map((p) => (
               <li
                 key={p.id ?? p.text}
-                className="marker:text-zinc-400 dark:marker:text-zinc-500"
+                className="marker:text-muted-foreground"
               >
                 {p.text}
               </li>

@@ -17,9 +17,9 @@ export default function ThemeToggle() {
       <button
         type="button"
         aria-label="Toggle theme"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
+        className="flex h-9 w-9 items-center justify-center rounded-sm border border-border bg-card text-muted-foreground"
       >
-        <div className="h-4 w-4" />
+        <div className="h-3.5 w-3.5" />
       </button>
     );
   }
@@ -31,9 +31,9 @@ export default function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-pressed={isDark}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 bg-white text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
+      className="flex h-9 w-9 items-center justify-center rounded-sm border border-border bg-card text-muted-foreground hover:border-accent hover:text-accent transition-colors duration-150"
     >
-      {isDark ? <Sun size={18} aria-hidden /> : <Moon size={18} aria-hidden />}
+      {isDark ? <Sun size={14} aria-hidden /> : <Moon size={14} aria-hidden />}
     </button>
   );
 }

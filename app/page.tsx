@@ -13,89 +13,108 @@ export const metadata = buildMetadata({
   image: "/img/fullstack.jpg",
 });
 
+const values = [
+  "Keep things simple and practical",
+  "Write code that future-me won't hate",
+  "Prioritize performance and user experience",
+  "Build with intention, not just habit",
+];
+
 export default function Home() {
   const years = getYearsOfExperience(new Date(2020, 0));
   return (
-    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-10">
-      <section className="space-y-10">
-        <div className="space-y-6">
-          <div className="me">
-            <h1 className="text-2xl font-semibold">Muhammad Ilyas</h1>
-            <p className="text-zinc-600 dark:text-zinc-300">
-              Senior Fullstack Engineer
-            </p>
-          </div>
-          <div className="group relative mx-auto h-80 max-w-md md:h-96 md:max-w-lg">
-            <div className="absolute left-0 top-2 w-2/3 rounded-lg border border-zinc-200 bg-white p-2 shadow-sm shadow-black/10 -rotate-3 z-10 hover:z-20 focus-within:z-20 dark:border-zinc-800 dark:bg-zinc-900">
-              <div className="relative overflow-hidden rounded-md ring-1 ring-inset ring-zinc-200 transition-transform duration-300 ease-out dark:ring-zinc-800">
-                <Image
-                  src="/img/profile.jpeg"
-                  alt="Muhammad Ilyas"
-                  width={400}
-                  height={400}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
+    <main className="mx-auto max-w-2xl px-4 py-10 md:py-20 min-h-screen">
+
+      {/* Hero */}
+      <section className="mb-16 md:mb-24">
+        <div className="mb-10">
+          <p className="font-mono-code text-xs tracking-widest uppercase text-accent mb-3">
+            Senior Fullstack Engineer
+          </p>
+          <h1 className="font-display text-5xl md:text-4xl font-black leading-[0.95] tracking-tight text-foreground mb-6">
+            Muhammad<br />Ilyas
+          </h1>
+          <div className="w-12 h-0.5 bg-accent mb-6" />
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-sm">
+            {years}+ years building fast, clean web experiences.
+            React ecosystem, Next.js, Node.js, PostgreSQL.
+            Care about structure, clarity, performance.
+          </p>
+        </div>
+
+        {/* Photo collage */}
+        <div className="group relative mx-auto h-72 max-w-md md:h-88">
+          <div className="absolute left-0 top-0 w-[58%] rounded border border-border bg-card p-1.5 shadow-md -rotate-2 z-10 hover:z-20 transition-transform hover:rotate-0 duration-300">
+            <div className="relative overflow-hidden rounded-sm ring-1 ring-inset ring-border">
+              <Image
+                src="/img/profile.jpeg"
+                alt="Muhammad Ilyas"
+                width={400}
+                height={400}
+                className="h-auto w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
             </div>
-            <div className="absolute right-0 top-10 w-3/4 rounded-lg border border-zinc-200 bg-white p-2 shadow-sm shadow-black/10 rotate-2 z-0 hover:z-20 focus-within:z-20 dark:border-zinc-800 dark:bg-zinc-900">
-              <div className="relative overflow-hidden rounded-md ring-1 ring-inset ring-zinc-200 transition-transform duration-300 ease-out dark:ring-zinc-800">
-                <Image
-                  src="/img/beach.jpg"
-                  alt="Muhammad Ilyas"
-                  width={400}
-                  height={400}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
+          </div>
+          <div className="absolute right-0 top-8 w-[65%] rounded border border-border bg-card p-1.5 shadow-md rotate-1 z-0 hover:z-20 transition-transform hover:rotate-0 duration-300">
+            <div className="relative overflow-hidden rounded-sm ring-1 ring-inset ring-border">
+              <Image
+                src="/img/beach.jpg"
+                alt="Muhammad Ilyas"
+                width={400}
+                height={400}
+                className="h-auto w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
             </div>
           </div>
         </div>
-        <div className="space-y-4 text-zinc-600 dark:text-zinc-300 text-sm md:text-base pt-2 md:pt-10">
+      </section>
+
+      {/* About */}
+      <section className="mb-16 md:mb-20 border-t border-border pt-10">
+        <p className="font-mono-code text-xs tracking-widest uppercase text-muted-foreground mb-6">
+          About
+        </p>
+        <div className="space-y-4 text-foreground text-sm md:text-base leading-relaxed">
           <p>
-            I’m a <strong>Fullstack Engineer</strong> with <strong>{years}+ years of experience</strong> with <strong>strong
-            frontend expertise</strong>, building fast, clean, and easy-to-use web experiences. My core strength is
-            the React ecosystem, particularly Next.js and Vite, but I also work
-            on the backend with Node.js and PostgreSQL. I care about good
-            structure, clear code, and performance that feels smooth to users.
+            I'm a <strong className="font-semibold text-foreground">Fullstack Engineer</strong> with{" "}
+            <strong className="font-semibold text-foreground">{years}+ years of experience</strong>{" "}
+            and <strong className="font-semibold text-foreground">strong frontend expertise</strong>,
+            building fast, clean, and easy-to-use web experiences. My core strength is
+            the React ecosystem — Next.js and Vite — while also working on the backend
+            with Node.js and PostgreSQL.
           </p>
-          <p>
-            I write about the things I learn along the way, small improvements,
-            practical lessons, and ideas that help me build better apps. Welcome
-            to my little corner of the internet.
+          <p className="text-muted-foreground">
+            I write about the things I learn along the way: small improvements,
+            practical lessons, and ideas that help me build better apps.
           </p>
         </div>
       </section>
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold">MY VALUES</h2>
-        <ul>
-          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-            <span className="px-2 py-1 text-sm md:text-base text-zinc-600 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-              Keep things simple and practical
-            </span>
-          </li>
-          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-            <span className="px-2 py-1 text-sm md:text-base text-zinc-600 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-              Write code that future-me won’t hate
-            </span>
-          </li>
-          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-            <span className="px-2 py-1 text-sm md:text-base text-zinc-600 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-              Prioritize performance and user experience
-            </span>
-          </li>
-          <li className="flex items-start gap-3 rounded-md p-1 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-            <span className="px-2 py-1 text-sm md:text-base text-zinc-600 dark:text-zinc-300 bg-zinc-200/50 dark:bg-yellow-300/20 rounded-sm box-decoration-clone">
-              Build with intention, not just habit
-            </span>
-          </li>
-        </ul>
+
+      {/* Values */}
+      <section className="mb-16 md:mb-20 border-t border-border pt-10">
+        <p className="font-mono-code text-xs tracking-widest uppercase text-muted-foreground mb-6">
+          Values
+        </p>
+        <ol className="space-y-0 divide-y divide-border">
+          {values.map((v, i) => (
+            <li
+              key={v}
+              className="flex items-baseline gap-5 py-4 group hover:text-accent transition-colors duration-150"
+            >
+              <span className="font-mono-code text-xs text-muted-foreground w-5 shrink-0 group-hover:text-accent transition-colors">
+                0{i + 1}
+              </span>
+              <span className="font-display text-lg md:text-xl font-medium leading-snug">
+                {v}
+              </span>
+            </li>
+          ))}
+        </ol>
       </section>
+
       <MyToolbox />
-
       <WorkTimeline />
-
       <GetInTouch />
-
       <DownloadCV />
     </main>
   );

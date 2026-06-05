@@ -1,16 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { getAllPortfolios } from "@/data/json/portfolios";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
 
 export const metadata = buildMetadata({
   title: "Portofolios",
@@ -30,44 +22,51 @@ type Portfolio = {
 export default function PortfoliosPage() {
   const portfolios = getAllPortfolios() as Portfolio[];
   return (
-    <main className="mx-auto max-w-2xl px-4 py-6 md:py-16 min-h-screen space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">Portfolios</h1>
-        <p className="text-zinc-500">
-          List of projects and works that I have done.
+    <main className="mx-auto max-w-2xl px-4 py-10 md:py-20 min-h-screen">
+      <div className="mb-10">
+        <p className="font-mono-code text-xs tracking-widest uppercase text-accent mb-3">
+          Work
+        </p>
+        <h1 className="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight text-foreground">
+          Portfolios
+        </h1>
+        <p className="text-sm text-muted-foreground mt-2">
+          Projects and works I've shipped.
         </p>
       </div>
-      <ul className="grid gap-4 sm:grid-cols-2">
-        {portfolios.map((item) => (
-          <li key={item.slug}>
-            <Card className="overflow-hidden">
-              <CardContent className="px-4">
-                <div className="relative aspect-4/3 w-full">
+      <ul className="grid gap-px sm:grid-cols-2 border border-border rounded-sm overflow-hidden">
+        {portfolios.map((item, i) => (
+          <li key={item.slug} className="bg-card">
+            <Link
+              href={`/portfolios/${item.slug}`}
+              className="block group p-4 hover:bg-secondary transition-colors duration-150 h-full"
+            >
+              <div className="space-y-3">
+                <div className="relative aspect-4/3 w-full overflow-hidden rounded-sm border border-border bg-muted">
                   <Image
                     src={item.thumbnail}
                     alt={item.name}
                     fill
-                    className="object-contain"
+                    className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                     priority={false}
                   />
                 </div>
-              </CardContent>
-              <CardHeader>
-                <CardTitle className="line-clamp-2">{item.name}</CardTitle>
-                <CardDescription className="line-clamp-3">
-                  {item.description}
-                </CardDescription>
-              </CardHeader>
-              <CardFooter>
-                <Link
-                  href={`/portfolios/${item.slug}`}
-                  className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-                >
-                  <span>Read more</span>
-                  <ArrowRight size={16} />
-                </Link>
-              </CardFooter>
-            </Card>
+                <div className="space-y-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="font-display text-sm font-semibold leading-snug group-hover:text-accent transition-colors line-clamp-2">
+                      {item.name}
+                    </p>
+                    <ArrowUpRight
+                      size={14}
+                      className="shrink-0 text-muted-foreground group-hover:text-accent transition-colors mt-0.5"
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

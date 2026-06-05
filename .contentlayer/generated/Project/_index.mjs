@@ -2,7 +2,7 @@
 
 import projects__merchantcoreAdminMdx from './projects__merchantcore-admin.mdx.json' assert { type: 'json' }
 import projects__merchantcoreApiMdx from './projects__merchantcore-api.mdx.json' assert { type: 'json' }
-import projects__supriSpinachStockResearchMdxMdx from './projects__supri-spinach-stock-research.mdx.mdx.json' assert { type: 'json' }
 import projects__quantBdmMdx from './projects__quant-bdm.mdx.json' assert { type: 'json' }
+import projects__supriSpinachStockResearchMdxMdx from './projects__supri-spinach-stock-research.mdx.mdx.json' assert { type: 'json' }
 
-export const allProjects = [projects__merchantcoreAdminMdx, projects__merchantcoreApiMdx, projects__supriSpinachStockResearchMdxMdx, projects__quantBdmMdx]
+export const allProjects = [projects__merchantcoreAdminMdx, projects__merchantcoreApiMdx, projects__quantBdmMdx, projects__supriSpinachStockResearchMdxMdx]

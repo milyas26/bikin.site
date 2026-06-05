@@ -27,132 +27,95 @@ import {
   Monitor,
 } from "lucide-react";
 
+const categories = [
+  {
+    label: "Frontend",
+    items: [
+      { label: "React", icon: Atom },
+      { label: "Next.js", icon: Braces },
+      { label: "TypeScript", icon: FileCode },
+      { label: "Vite", icon: Flame },
+      { label: "Tailwind CSS", icon: Wind },
+      { label: "shadcn/ui", icon: PanelsTopLeft },
+      { label: "TanStack", icon: Layers },
+      { label: "Atomic Design", icon: Shapes },
+    ],
+  },
+  {
+    label: "Backend",
+    items: [
+      { label: "Node.js", icon: Server },
+      { label: "Go", icon: Cog },
+      { label: "Fastify", icon: Rocket },
+      { label: "NestJS", icon: Braces },
+      { label: "Laravel", icon: Braces },
+      { label: "WebSocket", icon: Link },
+      { label: "Clean Architecture", icon: Layers },
+    ],
+  },
+  {
+    label: "Databases",
+    items: [
+      { label: "PostgreSQL", icon: Database },
+      { label: "MySQL", icon: Database },
+      { label: "MongoDB", icon: Leaf },
+      { label: "Prisma ORM", icon: Hexagon },
+      { label: "Firebase", icon: Flame },
+    ],
+  },
+  {
+    label: "Infrastructure",
+    items: [
+      { label: "Docker", icon: Box },
+      { label: "Vercel", icon: Triangle },
+      { label: "GitHub", icon: Github },
+      { label: "CI/CD", icon: GitBranch },
+      { label: "API Design", icon: Share2 },
+    ],
+  },
+  {
+    label: "AI",
+    items: [
+      { label: "9router", icon: Network },
+      { label: "Opencode", icon: Bot },
+      { label: "DeepSeek V4", icon: Cpu },
+      { label: "Claude Opus", icon: Brain },
+      { label: "Graphify", icon: GitGraph },
+    ],
+  },
+  {
+    label: "Workstation",
+    items: [
+      { label: "MacBook Pro M4 Pro — 24GB · 12c CPU · 16c GPU", icon: Monitor },
+    ],
+  },
+];
+
 export default function MyToolbox() {
   return (
-    <section className="space-y-4 md:pt-10">
-      <h2 className="text-lg font-semibold">MY TOOLBOX</h2>
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">Frontend</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: "React", icon: Atom },
-              { label: "Next.js", icon: Braces },
-              { label: "TypeScript", icon: FileCode },
-              { label: "Vite", icon: Flame },
-              { label: "Tailwind CSS", icon: Wind },
-              { label: "shadcn/ui", icon: PanelsTopLeft },
-              { label: "TanStack", icon: Layers },
-              { label: "Atomic Design", icon: Shapes },
-            ].map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </span>
-            ))}
+    <section className="mb-16 md:mb-20 border-t border-border pt-10">
+      <p className="font-mono-code text-xs tracking-widest uppercase text-muted-foreground mb-6">
+        Toolbox
+      </p>
+      <div className="space-y-5">
+        {categories.map((cat) => (
+          <div key={cat.label} className="flex flex-col sm:flex-row sm:gap-8 gap-2">
+            <span className="font-mono-code text-xs text-muted-foreground sm:w-28 shrink-0 pt-0.5">
+              {cat.label}
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {cat.items.map(({ label, icon: Icon }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-sm border border-border bg-card px-2 py-1 font-mono-code text-xs text-foreground hover:border-accent hover:text-accent transition-colors duration-150"
+                >
+                  <Icon className="h-3 w-3 shrink-0" />
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">Backend</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: "Node.js", icon: Server },
-              { label: "Go", icon: Cog },
-              { label: "Fastify", icon: Rocket },
-              { label: "NestJS", icon: Braces },
-              { label: "Laravel", icon: Braces },
-              { label: "WebSocket", icon: Link },
-              { label: "Clean Architecture", icon: Layers },
-            ].map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">Databases</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: "PostgreSQL", icon: Database },
-              { label: "MySQL", icon: Database },
-              { label: "MongoDB", icon: Leaf },
-              { label: "Prisma ORM", icon: Hexagon },
-              { label: "Firebase (Firestore / Auth)", icon: Flame },
-            ].map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">Infrastructure &amp; Tools</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: "Docker", icon: Box },
-              { label: "Vercel", icon: Triangle },
-              { label: "GitHub", icon: Github },
-              { label: "CI/CD workflows", icon: GitBranch },
-              { label: "API design & system integration", icon: Share2 },
-            ].map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">AI</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: "9router", icon: Network },
-              { label: "Opencode", icon: Bot },
-              { label: "DeepSeek V4", icon: Cpu },
-              { label: "Claude Opus", icon: Brain },
-              { label: "Graphify", icon: GitGraph },
-            ].map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-zinc-600 dark:text-zinc-300">Workstation</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: "MacBook Pro M4 Pro (24GB RAM, 512GB SSD, 12‑core CPU, 16‑core GPU)", icon: Monitor },
-            ].map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-md border border-zinc-200 bg-white px-2 py-1 text-sm text-zinc-700 shadow-sm hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-900/60"
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

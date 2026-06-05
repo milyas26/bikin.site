@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import Providers from "@/app/providers";
 import { defaultSiteMetadata } from '@/lib/seo'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  axes: ["SOFT", "WONK", "opsz"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = defaultSiteMetadata;
@@ -25,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${fraunces.variable} ${outfit.variable} ${jetbrainsMono.variable} antialiased`}>
         <Providers>
           {children}
           <Footer />

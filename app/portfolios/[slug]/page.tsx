@@ -14,6 +14,7 @@ type Portfolio = {
   name: string;
   slug: string;
   thumbnail: string;
+  year?: string;
   role?: string;
   description: string;
   link?: { type: string; url: string };
@@ -76,6 +77,9 @@ export default async function PortfolioDetailPage({
       <div className="space-y-0">
         <h1 className="font-display text-3xl md:text-4xl font-black leading-tight tracking-tight">{item.name}</h1>
         <p className="text-sm text-muted-foreground mt-1">{item.role}</p>
+        {item.year && (
+          <p className="font-mono-code text-xs text-accent mt-1">{item.year}</p>
+        )}
       </div>
       <Card className="overflow-hidden border-none shadow-none!">
         <CardContent>

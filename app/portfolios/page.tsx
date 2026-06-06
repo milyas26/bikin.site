@@ -15,6 +15,7 @@ type Portfolio = {
   name: string;
   slug: string;
   thumbnail: string;
+  year?: string;
   role?: string;
   description: string;
 };
@@ -61,6 +62,9 @@ export default function PortfoliosPage() {
                       className="shrink-0 text-muted-foreground group-hover:text-accent transition-colors mt-0.5"
                     />
                   </div>
+                  {item.year && (
+                    <p className="font-mono-code text-xs text-accent">{item.year}</p>
+                  )}
                   <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                     {item.description}
                   </p>

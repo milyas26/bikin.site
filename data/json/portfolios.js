@@ -4,6 +4,7 @@ const portfolios = [
     name: "Dropshipedia",
     slug: "dropshipedia",
     thumbnail: "/portfolio/dropshipedia/dropshipedia.png",
+    year: "2022",
     link: {
       type: "Website",
       url: "https://dropshipedia.id/",
@@ -57,6 +58,7 @@ const portfolios = [
     name: "Dompet Dhuafa - Crowdfunding App",
     slug: "dompet-dhuafa",
     thumbnail: "/portfolio/dompet-dhuafa/dompet-dhuafa.png",
+    year: "2021",
     link: {
       type: "Website",
       url: "https://jadibaik.org/",
@@ -114,6 +116,7 @@ const portfolios = [
     name: "Halwey - Ecommerce Beauty",
     slug: "halwey",
     thumbnail: "/portfolio/halwey/halwey.png",
+    year: "2021",
     link: {
       type: "Website",
       url: "https://halwey.com/",
@@ -171,6 +174,7 @@ const portfolios = [
     name: "Menarini - Ecommerce Medicine",
     slug: "menarini",
     thumbnail: "/portfolio/menarini/menarini.png",
+    year: "2021",
     link: {
       type: "Website",
       url: "https://menarinistore.id/",
@@ -228,6 +232,7 @@ const portfolios = [
     name: "Wayshub - Video Sharing App",
     slug: "wayshub",
     thumbnail: "/portfolio/wayshub/wayshub.png",
+    year: "2021",
     link: {
       type: "Repository",
       url: "https://github.com/milyas26/DWF19TB3E_Wayshub_Fullstack",
@@ -271,6 +276,7 @@ const portfolios = [
   {
     id: 6,
     name: "Waysgallery - Hire Designer",
+    year: "2021",
     slug: "waysgallery",
     thumbnail: "/portfolio/waysgallery/waysgallery.png",
     link: {
@@ -316,6 +322,7 @@ const portfolios = [
   {
     id: 7,
     name: "Staycation - Booking Hotel",
+    year: "2020",
     slug: "staycation",
     thumbnail: "/portfolio/staycation/staycation.png",
     link: {
@@ -373,6 +380,7 @@ const portfolios = [
   {
     id: 8,
     name: "Parama Apartment - Company Profile",
+    year: "2021",
     slug: "parama-apartment",
     thumbnail: "/portfolio/parama/parama.png",
     link: {
@@ -415,6 +423,7 @@ const portfolios = [
     id: 9,
     name: "Jakodes - Jaringan Toko & Bumdes",
     slug: "jakodes",
+    year: "2021",
     thumbnail: "/portfolio/jakodes/jakodes.png",
     role: "Fullstack Engineer",
     description:
@@ -456,6 +465,7 @@ const portfolios = [
     id: 10,
     name: "Untung Lagi - Online Shop and Courier",
     slug: "untung-lagi",
+    year: "2021",
     thumbnail: "/portfolio/untung-lagi/untung-lagi.png",
     role: "Fullstack Engineer",
     description:
@@ -497,6 +507,7 @@ const portfolios = [
     id: 11,
     name: "E-Psikolog - Psychology Test Online",
     slug: "e-psikolog",
+    year: "2021",
     thumbnail: "/portfolio/e-psikolog/e-psikolog.png",
     role: "Fullstack Engineer",
     description:
@@ -538,6 +549,7 @@ const portfolios = [
     id: 12,
     name: "The Lavande Apartment",
     slug: "the-lavande-apartment",
+    year: "2021",
     thumbnail: "/portfolio/lavande/lavande.png",
     link: {
       type: "Website",
@@ -583,6 +595,7 @@ const portfolios = [
     id: 13,
     name: "INISA Company Profile",
     slug: "inisa-company-profile",
+    year: "2021",
     thumbnail: "/portfolio/inisa/inisa.png",
     link: {
       type: "Website",

@@ -30,6 +30,7 @@ import {
   Zap,
   Plug,
   Shield,
+  Workflow,
 } from "lucide-react";
 
 const categories = [
@@ -37,6 +38,8 @@ const categories = [
     label: "Frontend",
     items: [
       { label: "React", icon: Atom },
+      { label: "Vue", icon: Triangle },
+      { label: "Angular", icon: Hexagon },
       { label: "Next.js", icon: Braces },
       { label: "TypeScript", icon: FileCode },
       { label: "Vite", icon: Flame },
@@ -98,6 +101,7 @@ const categories = [
       { label: "Claude Opus", icon: Brain },
       { label: "Graphify", icon: GitGraph },
       { label: "MCP", icon: Plug },
+      { label: "Agentic Workflow", icon: Workflow },
     ],
   },
   {

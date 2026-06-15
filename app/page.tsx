@@ -36,8 +36,9 @@ export default function Home() {
           </h1>
           <div className="w-12 h-0.5 bg-accent mb-6" />
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-sm">
-            {years}+ years building fast, clean web experiences.
+            Building fast, clean web and mobile experiences.
             React ecosystem, Next.js, Node.js, PostgreSQL.
+            Flutter, React Native, Expo for mobile.
             Care about structure, clarity, performance.
           </p>
         </div>
@@ -79,9 +80,9 @@ export default function Home() {
             I'm a <strong className="font-semibold text-foreground">Fullstack Engineer</strong> with{" "}
             <strong className="font-semibold text-foreground">{years}+ years of experience</strong>{" "}
             and <strong className="font-semibold text-foreground">strong frontend expertise</strong>,
-            building fast, clean, and easy-to-use web experiences. My core strength is
+            building fast, clean, and easy-to-use web and mobile experiences. My core strength is
             the React ecosystem — Next.js and Vite — while also working on the backend
-            with Node.js and PostgreSQL.
+            with Node.js and PostgreSQL. For mobile, I build with Flutter, React Native, and Expo.
           </p>
           <p className="text-muted-foreground">
             I write about the things I learn along the way: small improvements,

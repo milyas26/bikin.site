@@ -25,6 +25,11 @@ import {
   Brain,
   GitGraph,
   Monitor,
+  Smartphone,
+  Tablet,
+  Zap,
+  Plug,
+  Shield,
 } from "lucide-react";
 
 const categories = [
@@ -39,6 +44,15 @@ const categories = [
       { label: "shadcn/ui", icon: PanelsTopLeft },
       { label: "TanStack", icon: Layers },
       { label: "Atomic Design", icon: Shapes },
+    ],
+  },
+  {
+    label: "Mobile",
+    items: [
+      { label: "Flutter", icon: Smartphone },
+      { label: "React Native", icon: Tablet },
+      { label: "Expo", icon: Zap },
+      { label: "BloC", icon: Layers },
     ],
   },
   {
@@ -61,6 +75,7 @@ const categories = [
       { label: "MongoDB", icon: Leaf },
       { label: "Prisma ORM", icon: Hexagon },
       { label: "Firebase", icon: Flame },
+      { label: "Supabase", icon: Database },
     ],
   },
   {
@@ -71,6 +86,7 @@ const categories = [
       { label: "GitHub", icon: Github },
       { label: "CI/CD", icon: GitBranch },
       { label: "API Design", icon: Share2 },
+      { label: "Cloudflare", icon: Shield },
     ],
   },
   {
@@ -81,6 +97,7 @@ const categories = [
       { label: "DeepSeek V4", icon: Cpu },
       { label: "Claude Opus", icon: Brain },
       { label: "Graphify", icon: GitGraph },
+      { label: "MCP", icon: Plug },
     ],
   },
   {

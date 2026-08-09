@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-zinc-50">
-      <div className="w-full max-w-xs md:max-w-md rounded-xl border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 shadow-sm p-6 md:p-8 text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center gap-8">
+      <div className="w-full max-w-xs md:max-w-md rounded-xl border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 p-6 md:p-8 text-center">
         <div className="flex flex-row items-start gap-3 md:gap-4 mb-10">
           <Image
             src="/img/profile.jpeg"
@@ -17,7 +17,7 @@ const page = () => {
           <div className="text-left">
             <h1 className="text-xl font-bold">MUHAMMAD ILYAS</h1>
             <p className="text-zinc-600 dark:text-zinc-300 text-lg font-medium mb-1">
-              Senior Fullstack Engineer
+              Software Engineer
             </p>
             <div className="flex items-start gap-2">
               <svg
@@ -44,6 +44,7 @@ const page = () => {
                   "Tailwind",
                   "Shadcn",
                   "Nodejs",
+                  "Golang",
                   "PostgreSQL",
                 ].map((item) => (
                   <Badge

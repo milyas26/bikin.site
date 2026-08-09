@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 const SITE_NAME = 'Muhammad Ilyas'
-const SITE_TITLE = 'Muhammad Ilyas — Senior Fullstack Engineer'
+const SITE_TITLE = 'Muhammad Ilyas — Software Engineer'
 const SITE_DESCRIPTION = 'Portfolio, blog, dan karya open source dari Muhammad Ilyas.'
-const DEFAULT_IMAGE = "/img/fullstack.jpg";
+const DEFAULT_IMAGE = "/img/card.png";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bikin.site'
 

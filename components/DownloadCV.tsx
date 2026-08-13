@@ -11,7 +11,7 @@ export default function DownloadCV() {
           Full experience, skills, and contact details in one document.
         </p>
         <a
-          href="/files/muhammad-ilyas-resume.pdf"
+          href="/files/milyas-resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-sm border border-border bg-card px-4 py-2.5 font-mono-code text-xs text-foreground hover:border-accent hover:text-accent transition-colors duration-150 shrink-0"
